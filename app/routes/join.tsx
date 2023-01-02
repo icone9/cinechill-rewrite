@@ -88,14 +88,13 @@ export default function Join() {
   return (
     <div className="flex min-h-full flex-col justify-center">
       <div className="mx-auto w-full max-w-md px-8">
+        <div className="flex items-center justify-center py-4">
+          <Link to="/" className="text-primary text-4xl font-bold">
+            <span className="text-white">Cine</span>Chill
+          </Link>
+        </div>
         <Form method="post" className="space-y-6" noValidate>
           <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Email address
-            </label>
             <div className="mt-1">
               <input
                 ref={emailRef}
@@ -104,10 +103,11 @@ export default function Join() {
                 autoFocus={true}
                 name="email"
                 type="email"
+                placeholder="Email"
                 autoComplete="email"
                 aria-invalid={actionData?.errors?.email ? true : undefined}
                 aria-describedby="email-error"
-                className="w-full rounded border border-gray-500 px-2 py-1 text-lg"
+                className="w-full rounded border bg-gray-500 bg-opacity-40 text-white p-2 border-transparent"
               />
               {actionData?.errors?.email && (
                 <div className="pt-1 text-red-700" id="email-error">
@@ -118,22 +118,17 @@ export default function Join() {
           </div>
 
           <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Password
-            </label>
             <div className="mt-1">
               <input
                 id="password"
                 ref={passwordRef}
                 name="password"
                 type="password"
+                placeholder="Password"
                 autoComplete="new-password"
                 aria-invalid={actionData?.errors?.password ? true : undefined}
                 aria-describedby="password-error"
-                className="w-full rounded border border-gray-500 px-2 py-1 text-lg"
+                className="w-full rounded border bg-gray-500 bg-opacity-40 text-white p-2 border-transparent"
               />
               {actionData?.errors?.password && (
                 <div className="pt-1 text-red-700" id="password-error">
@@ -146,15 +141,15 @@ export default function Join() {
           <input type="hidden" name="redirectTo" value={redirectTo} />
           <button
             type="submit"
-            className="w-full rounded bg-primary  py-2 px-4 text-white focus:bg-purple-400"
+            className="w-full rounded bg-primary py-2 px-4 text-white focus:bg-purple-400"
           >
             Create Account
           </button>
           <div className="flex items-center justify-center">
-            <div className="text-center text-sm text-gray-500">
+            <div className="text-center text-sm text-gray-100">
               Already have an account?{" "}
               <Link
-                className="text-blue-500 underline"
+                className="text-primary underline font-semibold"
                 to={{
                   pathname: "/login",
                   search: searchParams.toString(),

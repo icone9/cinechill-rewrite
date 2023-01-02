@@ -17,7 +17,7 @@ export const sessionStorage = createCookieSessionStorage({
   },
 });
 
-const USER_SESSION_KEY = "userId";
+const USER_SESSION_KEY = "cinechill_session";
 
 export async function getSession(request: Request) {
   const cookie = request.headers.get("Cookie");

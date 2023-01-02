@@ -3,6 +3,8 @@ import { useMemo } from "react";
 
 import type { User } from "~/models/user.server";
 
+import fetch from 'node-fetch';
+
 const DEFAULT_REDIRECT = "/";
 
 /**
@@ -68,4 +70,18 @@ export function useUser(): User {
 
 export function validateEmail(email: unknown): email is string {
   return typeof email === "string" && email.length > 3 && email.includes("@");
+}
+
+export async function fetchTMDB<T = unknown>(url: string, query: string = '') {
+  const response = await fetch(
+    `${process.env.TMDB_ROUTE_URL}${url}${query}`, 
+    {
+	    method: 'GET',
+	    headers: {
+        'Authorization': `Bearer ${process.env.TMDB_API_KEY}`, 
+        'Content-Type': 'application/json'
+      }
+    }
+  );
+  return response.json() as T; 
 }

@@ -53,14 +53,14 @@ export async function action({ request }: ActionArgs) {
   return createUserSession({
     request,
     userId: user.id,
-    remember: remember === "on" ? true : false,
+    remember: true,
     redirectTo,
   });
 }
 
 export const meta: MetaFunction = () => {
   return {
-    title: "Login",
+    title: "Login Page",
   };
 };
 
@@ -82,26 +82,26 @@ export default function LoginPage() {
   return (
     <div className="flex min-h-full flex-col justify-center">
       <div className="mx-auto w-full max-w-md px-8">
+        <div className="flex items-center justify-center py-4">
+          <Link to="/" className="text-primary text-4xl font-bold">
+            <span className="text-white">Cine</span>Chill
+          </Link>
+        </div>
         <Form method="post" className="space-y-6" noValidate>
           <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-100"
-            >
-              Email address
-            </label>
             <div className="mt-1">
               <input
-                ref={emailRef}
-                id="email"
-                required
-                autoFocus={true}
-                name="email"
-                type="email"
-                autoComplete="email"
-                aria-invalid={actionData?.errors?.email ? true : undefined}
-                aria-describedby="email-error"
-                className="w-full rounded border border-gray-500 px-2 py-1 text-lg"
+              ref={emailRef}
+              id="email"
+              required
+              autoFocus={true}
+              name="email"
+              type="email"
+              autoComplete="email"
+              placeholder="Email"
+              aria-invalid={actionData?.errors?.email ? true : undefined}
+              aria-describedby="email-error"
+              className="w-full rounded border bg-gray-500 bg-opacity-40 text-white p-2 border-transparent"
               />
               {actionData?.errors?.email && (
                 <div className="pt-1 text-red-700" id="email-error">
@@ -112,22 +112,17 @@ export default function LoginPage() {
           </div>
 
           <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-100"
-            >
-              Password
-            </label>
             <div className="mt-1">
               <input
                 id="password"
                 ref={passwordRef}
                 name="password"
                 type="password"
+                placeholder="Password"
                 autoComplete="current-password"
                 aria-invalid={actionData?.errors?.password ? true : undefined}
                 aria-describedby="password-error"
-                className="w-full rounded border border-gray-500 px-2 py-1 text-lg"
+                className="w-full rounded border bg-gray-500 bg-opacity-40 p-2 text-white border-transparent focus:border-gray-700"
               />
               {actionData?.errors?.password && (
                 <div className="pt-1 text-red-700" id="password-error">
@@ -144,29 +139,16 @@ export default function LoginPage() {
           >
             Log in
           </button>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <input
-                id="remember"
-                name="remember"
-                type="checkbox"
-                className="h-4 w-4 rounded border-gray-300"
-              />
-              <label
-                htmlFor="remember"
-                className="ml-2 block text-sm text-gray-200"
-              >
-                Remember me
-              </label>
-            </div>
+          <div className="flex items-center justify-center">
+            
             <div className="text-center text-sm text-gray-200">
               Don't have an account?{" "}
               <Link
-                className="text-primary underline font-semibold"
-                to={{
-                  pathname: "/join",
-                  search: searchParams.toString(),
-                }}
+              className="text-primary underline font-semibold"
+              to={{
+                pathname: "/join",
+                search: searchParams.toString(),
+              }}
               >
                 Sign up
               </Link>

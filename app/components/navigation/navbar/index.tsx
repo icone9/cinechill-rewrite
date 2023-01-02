@@ -16,7 +16,7 @@ const Navbar = ({ className }: NavbarProps) => {
   //  :className="{'bg-black': navOpen }" x-data="{ navOpen: false }"
   return (
     <nav className='fixed w-full navigation z-30'>
-    <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+    <div className="max-w-7xl mx-auto px-1 md:px-6">
         <div className="relative flex items-center justify-between h-16">
             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
               {/* @click="navOpen = !navOpen" */}
