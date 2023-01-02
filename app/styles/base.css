@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff;
+  padding: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a7abad;
+  border-radius: 4px;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+[x-cloak] { display: none !important; }
+.bg-skeleton{
+  background-image: linear-gradient(
+      270deg,
+      #343a40,
+      #495057,
+      #495057,
+      #343a40
+  );
+  background-size: 400% 100%;
+  animation: loading 8s ease-in-out infinite;
+}
+.turbolinks-progress-bar {
+  @apply bg-gradient-to-r from-blue-500 to-purple-400 h-1;
+}
+
+.ellipsis{
+  @apply block overflow-hidden overflow-ellipsis w-auto whitespace-nowrap;
+}
+.tag{
+  list-style: none;
+  border-radius: 50px;
+  @apply bg-gray-600 bg-opacity-25 whitespace-nowrap inline-block font-bold text-white;
+  /* @apply bg-gradient-to-r from-blue-500 to-green-400; */
+}
+.mini_tag{
+  padding: 1px 7px;
+  font-size: 10px;
+}
+.big_tag{
+  font-size: 13px;
+  padding: 4px 10px;
+  margin: 4px;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.bg-primary {
+  @apply bg-gradient-to-r from-blue-500 to-purple-400;
+}
+.text-primary{
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-blue-500  to-purple-400;
+}
