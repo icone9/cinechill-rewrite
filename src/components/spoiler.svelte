@@ -32,5 +32,5 @@
   <button
   on:click={handleClick}
   class="block mt-2 underline text-primary font-semibold focus:outline-none"
-  >{isCollapsed ? 'Show more' : 'Show less'}{maxLength}</button>
+  >{isCollapsed ? 'Show more' : 'Show less'}</button>
 </p>

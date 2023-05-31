@@ -7,6 +7,7 @@ export const load = (async ({ params }) => {
 	// "videos" => HttpCall::Tmdbget("/movie/{$id}/videos")
 	// 238,447277
 	const movie = await getMovie(+params.id, '?append_to_response=credits,images,similar')
+	// console.log(movie.credits?.cast, 'cast')
 	return { 
 		movie: {
 			id: movie.id,

@@ -7,11 +7,11 @@
 <div class='mt-4' style="min-width: 150px; max-width: 200px;">     
   <button class="bg-skeleton rounded-lg">
       <img 
-      class="hover:opacity-75 transition ease-in-out duration-150 rounded-lg lazyload poster"
+      class="hover:opacity-75 transition ease-in-out duration-150 rounded-lg bg-skeleton poster"
       alt={name}
       src={image}
       loading="lazy"
-
+      width="150"
       height="225"
       />
   </button>

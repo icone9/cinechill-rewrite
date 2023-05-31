@@ -21,7 +21,7 @@ export const load = (async () => {
       ...trendingMovies.map((movie) => ({
         id: movie.id,
         title: movie.original_title,
-        poster: `${TMDB_IMAGE_URL}/original${movie.poster_path}`
+        poster: `${TMDB_IMAGE_URL}/w200${movie.poster_path}`
       }))
     ],
 	};
