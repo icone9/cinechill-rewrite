@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff;
+  padding: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a7abad;
+  border-radius: 4px;
+}
+
+body {
+  @apply font-sans text-white antialiased h-screen bg-black;
+  /* background-color: #111; */
+  scroll-behavior: smooth;
+}
+
+@layer components {
+  .scrollbar-none::-webkit-scrollbar {
+      display: none;
+  }
+  .bg-primary {
+    @apply bg-gradient-to-r from-blue-500 to-purple-400;
+  }
+  .text-primary{
+    -webkit-background-clip: text;
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-blue-500  to-purple-400;
+  }
+
+}
+
+.bg-skeleton{
+  background-image: linear-gradient(
+      270deg,
+      #343a40,
+      #495057,
+      #495057,
+      #343a40
+  );
+  background-size: 400% 100%;
+  animation: loading 8s ease-in-out infinite;
+}
+
+
+
+.tag{
+    list-style: none;
+    border-radius: 50px;
+    @apply bg-gray-600 bg-opacity-25 whitespace-nowrap inline-block font-bold text-white;
+    /* @apply bg-gradient-to-r from-blue-500 to-green-400; */
+}
+.mini_tag{
+    padding: 1px 7px;
+    font-size: 10px;
+}
+.big_tag{
+    font-size: 13px;
+    padding: 4px 10px;
+    margin: 4px;
+}
+
+.banner{
+  color: white;
+  object-fit: contain;
+  height: 480px;
+}
+
+.banner_contents{
+  margin-left: 20px;
+  padding-top: 185px;
+  height: 275px;
+} 
+
+.banner_title{
+  font-size: 2.25rem;
+  font-weight: 800;
+  padding-bottom: 0.3rem;
+}
+
+.banner_description{
+  width: 45rem;
+  line-height: 1.3;
+  padding-top: 1rem;
+  font-size: 0.8rem;
+  max-width: 360px;
+  height: 80px;
+}
+
+@media (min-width: 768px) { 
+  .banner_title{
+      font-size: 3rem;
+  }
+  .banner_contents{
+      margin-left: 30px;
+      padding-top: 140px;
+  }
+}
+@media (min-width: 1024px) { 
+  .banner_title{
+      font-size: 3rem;
+  }
+  .banner_contents{
+      margin-left: 30px;
+      padding-top: 140px;
+  }
+}
+.banner_button{
+  @apply inline-flex justify-center items-center cursor-pointer border-0 outline-none text-white font-bold rounded-md mr-4 py-3 ;
+  max-width: 150px;
+  background-color: rgba(51, 51, 51,0.5); 
+}
+
+.banner_button:hover{
+  background-color: rgba(51, 51, 51,0.3); 
+  transition: all 0.2s;
+  opacity: .8;
+}
+
+.banner_fadeBottom{
+  height: 13rem;
+  background-image: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.61), #111);
+}
