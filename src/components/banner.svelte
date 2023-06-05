@@ -27,5 +27,5 @@
         {overview}
       </Text>
     </div>
-  <div class="banner_fadeBottom" />
+  <div class="fadeBottom" />
 </header>

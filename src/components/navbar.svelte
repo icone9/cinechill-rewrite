@@ -34,10 +34,6 @@
               </div>
               <div class="hidden sm:block sm:ml-6">
                   <div class="flex space-x-4">
-                      <a href="/home"
-                          class="py-2 px-3 rounded-md text-sm font-medium  flex items-center justify-center text-white">
-                          Home
-                      </a>
                       <a href="movies"
                           class="py-2 px-3 rounded-md text-sm font-medium  flex items-center justify-center text-white">
                           Movies
@@ -113,10 +109,6 @@
   <!-- @endauth :class="{'block': navOpen, 'hidden': !navOpen } -->
   <div class="hidden sm:hidden">
       <div class="px-2 pt-2 pb-3 space-y-1">
-          <a href="/"
-              class="text-gray-300 hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-base font-medium flex items-center">
-              Home
-          </a>
           <a href="/movies"
               class="text-gray-300 hover:bg-gray-900 hover:text-white  px-3 py-2 rounded-md text-base font-medium flex items-center">
               Movies

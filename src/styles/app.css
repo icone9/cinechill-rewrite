@@ -19,7 +19,7 @@
 }
 
 body {
-  @apply font-sans text-white antialiased h-screen bg-black;
+  @apply font-sans text-white antialiased h-screen bg-[#232426];
   /* background-color: #111; */
   scroll-behavior: smooth;
 }
@@ -125,7 +125,7 @@ body {
   opacity: .8;
 }
 
-.banner_fadeBottom{
+.fadeBottom{
   height: 13rem;
   background-image: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.61), #111);
 }

@@ -16,8 +16,13 @@ overview={data.banner.overview}
   <Slider title="Trending Now" path="/">
     {#each data.trending as movie}
       <MainPoster
-      name={movie.title}
-      image={movie.poster}
+      title={movie.title}
+      poster={movie.poster}
+      id={movie.id}
+      overview={movie.overview}
+      vote_average={movie.vote_average}
+      original_language={movie.original_language}
+      release_date={movie.release_date}     
       path="/movies/{movie.id}"
       />
     {/each}
