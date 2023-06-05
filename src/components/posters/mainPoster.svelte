@@ -3,7 +3,7 @@
 
   export let title: string;
   export let poster: string;
-  export let path: string;
+  export let type: string;
   export let id: number;
   export let overview: string;
   export let vote_average: number;
@@ -39,7 +39,7 @@
       />
   </button>
   <div>
-    <a href={path} class="hover:text-gray:300 text-sm font-medium">
+    <a href={type ==='movie'? `/movies/${id}`: `/series/${id}`} class="hover:text-gray:300 text-sm font-medium">
       {title}
     </a>
     <div>

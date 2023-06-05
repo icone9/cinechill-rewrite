@@ -1,6 +1,6 @@
 <script lang="ts">
+	import MediaPoster from '$components/posters/mediaPoster.svelte';
 	import Spoiler from '../../../components/spoiler.svelte';
-	import { TMDB_IMAGE_URL } from '../../../constants';
     import type { PageData } from './$types';
 
     export let data: PageData;
@@ -9,14 +9,14 @@
 <div>
     <div class="movie-info border-b border-gray-800 max-w-5xl mx-auto">
         <div class="pb-16 pt-0 md:pt-28 px-0 md:px-4 flex flex-col md:flex-row">
-            <img src={`${TMDB_IMAGE_URL}/original${data.movie.poster_path}`} 
-            class="rounded-lg hidden md:block bg-skeleton" width="320" height="560" alt="" />
-            <!-- <x-movie-media
-            :image="$movie['poster_path']"
-            :name="$movie['title']"
-            :info="$movie['videos']"
-            :play="$showModal"
-            /> -->
+            <img 
+            src={data.movie.poster_path} 
+            class="rounded-lg hidden md:block bg-skeleton" 
+            width="320" 
+            height="560" 
+            alt={data.movie.title} 
+            />
+            <MediaPoster poster={data.movie.poster_path} title={data.movie.title}/>
             <div class="px-4 md:px-0 md:ml-12 ">
                 <h2 class="text-4xl font-semibold pt-4 lg:pt-0 md:pt-0">{data.movie.title}</h2>
                 <div class="flex flex-wrap items-center text-gray-400 text-sm mt-4">
@@ -70,8 +70,11 @@
                         {#each data.movie.credits.cast as cast}
                             <div class="mt-8">
                                 <a href="/actors/{cast.id}">
-                                    <img src={`https://image.tmdb.org/t/p/w300${cast.profile_path}`} alt="actor poster"
-                                        class="hover:opacity-75 transition ease-in-out duration-150 rounded-md ">
+                                    <img 
+                                    src={`https://image.tmdb.org/t/p/w300${cast.profile_path}`} 
+                                    alt="actor poster"
+                                    class="hover:opacity-75 transition ease-in-out duration-150 rounded-md "
+                                    />
                                 </a>
                                 <div class="mt-2">
                                     <a href="/actors/5433" class="text-lg mt-2 hover:text-gray:300">{cast.name}</a>

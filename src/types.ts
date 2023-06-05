@@ -13,6 +13,35 @@ export type Movie = {
   video: false,
   vote_average: number,
   vote_count: number
+}
+
+export type Discover = {
+  adult: boolean,
+  backdrop_path: string,
+  genre_ids: number[],
+  id: number,
+  original_language: string,
+  original_title: string,
+  name: string;
+  overview: string,
+  popularity: number,
+  poster_path: string,
+  release_date: string
+  title: string,
+  video: false,
+  vote_average: number,
+  vote_count: number
+}
+
+export type MovieDetails = Movie & {
+  genres: Genre[]
+  budget: number,
+  belongs_to_collection: number | null,
+  homepage: string,
+  imdb_id: string,
+  production_companies: ProductionCompany[],
+  production_countries: ProductionCountry[],
+  spoken_languages: SpokenLanguage[]
   similar?: {
     page: number
     results: Movie[]
@@ -53,34 +82,6 @@ export type Movie = {
   }
 }
 
-export type Discover = {
-  adult: boolean,
-  backdrop_path: string,
-  genre_ids: number[],
-  id: number,
-  original_language: string,
-  original_title: string,
-  overview: string,
-  popularity: number,
-  poster_path: string,
-  release_date: string
-  title: string,
-  video: false,
-  vote_average: number,
-  vote_count: number
-}
-
-export type MovieDetails = Movie & {
-  genres: Genre[]
-  budget: number,
-  belongs_to_collection: number | null,
-  homepage: string,
-  imdb_id: string,
-  production_companies: ProductionCompany[],
-  production_countries: ProductionCountry[],
-  spoken_languages: SpokenLanguage[]
-}
-
 export type TvShow = {
   backdrop_path: string,
   first_air_date: string,
@@ -118,6 +119,44 @@ export type TvShowDetail = TvShow & {
   tagline: string,
   type: string,
   created_by: Creator[]
+  similar?: {
+    page: number
+    results: Movie[]
+  }
+  images?: {
+    backdrops: unknown[],
+    logos: unknown[],
+    posters: unknown[]
+  },
+  credits?: {
+    cast: {
+      adult: boolean,
+      gender: number,
+      id: number,
+      known_for_department: string,
+      name: string,
+      original_name: string,
+      popularity: number,
+      profile_path: string,
+      cast_id: number,
+      character: string,
+      credit_id: string,
+      order: number
+    }[]
+    crew:{
+      adult: boolean,
+      gender: number,
+      id: number,
+      known_for_department: string,
+      name: string,
+      original_name: string,
+      popularity: number,
+      profile_path: string,
+      credit_id: string,
+      department: string,
+      job: string
+    }[]
+  }
 }
 
 export type Genre = { 
