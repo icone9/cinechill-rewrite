@@ -4,7 +4,7 @@
 </script>
 
 <div class='mt-4' >
-  <div class="flex items-center justify-between ml-2">
+  <div class="flex items-center justify-between">
       <h2 class="tracking-wider text-xl lg:text-2xl font-bold">
           {title}
       </h2>
@@ -16,7 +16,7 @@
       </span>
   </div>
   <div>
-    <div class="flex overflow-y-hidden overflow-x-scroll scrollbar-none space-x-4 ml-4 mr-2">
+    <div class="flex overflow-y-hidden overflow-x-scroll scrollbar-none space-x-4 mr-2">
         <slot/>
     </div>
   </div>

@@ -8,7 +8,7 @@
 
 <div>
     <div class="movie-info border-b border-gray-800 max-w-5xl mx-auto">
-        <div class="pb-16 pt-0 md:pt-28 px-0 md:px-4 flex flex-col md:flex-row">
+        <div class="pb-6 pt-0 md:pt-28 px-0 md:px-4 flex flex-col md:flex-row">
             <img 
             src={data.movie.poster_path} 
             class="rounded-lg hidden md:block bg-skeleton" 
@@ -40,7 +40,7 @@
                 content={data.movie.overview}
                 class="text-gray-300 mt-4"
                 />
-    
+<!--     
                 {#if data.movie.credits?.crew}
                     <div class="mt-8">
                         <h4 class="text-white font-semibold">Featured Cast</h4>
@@ -53,7 +53,7 @@
                             {/each}
                         </div>
                     </div>
-                {/if}
+                {/if} -->
                 
                 <div class="flex justify-between mt-6">
                     <!-- <x-share-buttons/> -->
@@ -63,7 +63,7 @@
     
         </div>
         {#if data.movie.credits?.cast}
-            <div class="mx-auto px-2 py-16">
+            <div class="mx-auto px-2 pb-16">
                 <div class="movie-cast">
                     <div class="text-4xl font-semibold"> Cast</div>
                     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">

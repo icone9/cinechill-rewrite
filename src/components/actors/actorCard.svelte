@@ -9,8 +9,8 @@
       <img src={image}
       class="hover:opacity-75 transition ease-in-out duration-150 rounded-md lazyload"
       loading="lazy"
-      width="173"
-      height="173"
+      width="190"
+      height="190"
       alt=""
       >
   </a>

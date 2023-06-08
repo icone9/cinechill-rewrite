@@ -1,6 +1,7 @@
 <script>
 	import IconPlay from "$components/icons/IconPlay.svelte";
 	import IconX from "$components/icons/IconX.svelte";
+	import { clickOutside } from "$utils/click-outside";
     import { modalPosterStore } from "../../stores/global-store";
 
     function closeModal() {
@@ -8,11 +9,15 @@
     }
 </script>
 <div
-class={`Modal__overlay fixed inset-0 w-screen bg-gray-900 bg-opacity-80 transition-opacity duration-300 opacity-100 h-screen z-30 ${$modalPosterStore.isModalOpen ? '': 'hidden'}`}
+class={`fixed inset-0 w-screen bg-gray-900 bg-opacity-80 transition-opacity duration-300 
+${$modalPosterStore.isModalOpen ? 'opacity-100 h-screen z-30': 'opacity-0 pointer-events-none z-0 h-0'}`}
 >
     <div
-    class="Modal__wrp absolute top-1/2 left-1/2 block overflow-y-auto scrollbar-none rounded-xl max-w-full max-h-full bg-gray-800 transition-all duration-150 opacity-100 z-50 h-[28rem] w-[90%] md:w-[50%]"
+    class={`absolute top-1/2 left-1/2 block overflow-y-auto scrollbar-none rounded-xl max-w-full max-h-full bg-gray-800 transition-opacity duration-150 h-[28rem] w-[90%] md:w-[50%]
+    ${$modalPosterStore.isModalOpen ? 'opacity-100 z-50': 'opacity-0 pointer-events-none z-0'}
+    `}
     style="transform: translate(-50%, -50%);"
+    use:clickOutside={() => closeModal()}
     >
         <button
         on:click={closeModal}
@@ -21,14 +26,13 @@ class={`Modal__overlay fixed inset-0 w-screen bg-gray-900 bg-opacity-80 transiti
         >
             <IconX class="text-white group-hover:text-black w-6 h-6"/>
         </button>
-        <div class="relative Modal__image--wrp w-full">
+        <div class="relative w-full">
             <img
             class="w-[50rem] h-[24rem] rounded-tl-md rounded-tr-md object-cover Modal__image--img bg-skeleton"
             src={$modalPosterStore.details?.poster}
             alt="John wick 4 poster"
             loading="lazy"
             >
-            
             <div class="absolute bottom-0 left-0 w-full fadeBottom"/>
             <div class="absolute flex items-center left-6 bottom-6">
                 <a href="/test" class="banner_button bg-primary px-10">

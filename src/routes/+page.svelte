@@ -12,7 +12,7 @@ name={data.banner.title}
 backgroundImage={data.banner.backdrop_path}
 overview={data.banner.overview}
 />
-<div class="mx-auto py-12">
+<div class="mx-auto py-12 px-2">
   <Slider title="Trending Now" path="/">
     {#each data.trending as media}
       <MainPoster
