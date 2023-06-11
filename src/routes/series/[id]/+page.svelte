@@ -1,4 +1,5 @@
 <script lang="ts">
+	import MainPoster from '$components/posters/mainPoster.svelte';
 	import MediaPoster from '$components/posters/mediaPoster.svelte';
 	import Spoiler from '../../../components/spoiler.svelte';
     import type { PageData } from './$types';
@@ -17,7 +18,7 @@
             alt={data.serie.title} 
             />
             <MediaPoster poster={data.serie.poster_path} title={data.serie.title}/>
-            <div class="px-4 md:px-0 md:ml-12 ">
+            <div class="px-2 md:px-0 md:ml-12 ">
                 <h2 class="text-4xl font-semibold pt-4 lg:pt-0 md:pt-0">{data.serie.title}</h2>
                 <div class="flex flex-wrap items-center text-gray-400 text-sm mt-4">
                     <svg class="fill-current text-blue-400 w-4" viewBox="0 0 24 24">
@@ -44,9 +45,9 @@
                 {#if data.serie.credits?.crew}
                     <div class="mt-8">
                         <h4 class="text-white font-semibold">Featured Cast</h4>
-                        <div class="flex mt-4 items-center">
+                        <div class="flex mt-4 items-center flex-wrap">
                             {#each data.serie.credits.crew as crew}
-                            <div class="mr-8">
+                            <div class="mr-4 py-3">
                                 <div>{crew.name}</div>
                                 <div class="text-sm text-gray-400">{crew.job}</div>
                             </div>
@@ -63,7 +64,7 @@
     
         </div>
         {#if data.serie.credits?.cast}
-            <div class="mx-auto px-2 py-16">
+            <div class="mx-auto px-2 pb-8">
                 <div class="serie-cast">
                     <div class="text-4xl font-semibold"> Cast</div>
                     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -88,5 +89,23 @@
                 </div>
             </div>
         {/if}
+
+        <div class="pb-6">
+            <h2 class="text-4xl font-semibold">Similar Series</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 mx-2"> 
+                {#each data.serie.similar as serie}
+                    <MainPoster
+                    title={serie.title}
+                    poster={serie.poster}
+                    id={serie.id}
+                    overview={serie.overview}
+                    vote_average={serie.vote_average}
+                    original_language={serie.original_language}
+                    release_date={serie.release_date}  
+                    type={serie.type}
+                    />
+                {/each}
+            </div>
+        </div>
     </div>
 </div>

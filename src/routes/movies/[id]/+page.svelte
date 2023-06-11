@@ -1,4 +1,5 @@
 <script lang="ts">
+	import MainPoster from '$components/posters/mainPoster.svelte';
 	import MediaPoster from '$components/posters/mediaPoster.svelte';
 	import Spoiler from '../../../components/spoiler.svelte';
     import type { PageData } from './$types';
@@ -40,20 +41,20 @@
                 content={data.movie.overview}
                 class="text-gray-300 mt-4"
                 />
-<!--     
+    
                 {#if data.movie.credits?.crew}
                     <div class="mt-8">
                         <h4 class="text-white font-semibold">Featured Cast</h4>
-                        <div class="flex mt-4 items-center">
+                        <div class="flex mt-4 items-center flex-wrap">
                             {#each data.movie.credits.crew as crew}
-                            <div class="mr-8">
-                                <div>{crew.name}</div>
-                                <div class="text-sm text-gray-400">{crew.job}</div>
-                            </div>
+                                <div class="mr-4 py-3">
+                                    <div>{crew.name}</div>
+                                    <div class="text-sm text-gray-400">{crew.job}</div>
+                                </div>
                             {/each}
                         </div>
                     </div>
-                {/if} -->
+                {/if}
                 
                 <div class="flex justify-between mt-6">
                     <!-- <x-share-buttons/> -->
@@ -63,7 +64,7 @@
     
         </div>
         {#if data.movie.credits?.cast}
-            <div class="mx-auto px-2 pb-16">
+            <div class="mx-auto px-2 pb-8">
                 <div class="movie-cast">
                     <div class="text-4xl font-semibold"> Cast</div>
                     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -88,5 +89,23 @@
                 </div>
             </div>
         {/if}
+
+        <div class="py-6">
+            <h2 class="text-4xl font-semibold">Similar Movies</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 mx-2"> 
+                {#each data.movie.similar as movie}
+                    <MainPoster
+                    title={movie.title}
+                    poster={movie.poster}
+                    id={movie.id}
+                    overview={movie.overview}
+                    vote_average={movie.vote_average}
+                    original_language={movie.original_language}
+                    release_date={movie.release_date}  
+                    type={movie.type}
+                    />
+                {/each}
+            </div>
+        </div>
     </div>
 </div>

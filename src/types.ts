@@ -121,7 +121,7 @@ export type TvShowDetail = TvShow & {
   created_by: Creator[]
   similar?: {
     page: number
-    results: Movie[]
+    results: TvShow[]
   }
   images?: {
     backdrops: unknown[],

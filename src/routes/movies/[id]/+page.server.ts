@@ -7,7 +7,7 @@ export const load = (async ({ params }) => {
 	// "videos" => HttpCall::Tmdbget("/movie/{$id}/videos")
 	// 238,447277
 	const movie = await getMovie(+params.id, '?append_to_response=credits,images,similar')
-	// console.log(movie.credits?.cast, 'cast')
+	// console.log(movie.similar?.results, 'cast')
 	return { 
 		movie: {
 			id: movie.id,
@@ -29,6 +29,18 @@ export const load = (async ({ params }) => {
 					job: crew.job
 				}))
 			},
+			similar: movie.similar?.results.slice(0, 10)
+			.filter((movie) => movie.poster_path != null || movie.poster_path != undefined)
+			.map((movie) => ({
+				id: movie.id,
+        title: movie.original_title,
+        poster: `${TMDB_IMAGE_URL}/w200${movie.poster_path}`,
+        overview: movie.overview,
+        vote_average: movie.vote_average,
+        original_language: movie.original_language,
+        release_date: movie.release_date,
+        type: 'movie',
+			})) || [],
 			images: movie.images
 		}
 	};
