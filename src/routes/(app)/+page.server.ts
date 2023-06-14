@@ -1,10 +1,10 @@
 
 import { discoverWithGenre, discoverWithNetwork } from "$lib/server/models/common";
 import shuffleArray from "$utils/shuffle-array";
-import { TMDB_IMAGE_URL } from "../constants";
-import type { Movie, TvShow } from "../types";
-import { randomIntFromInterval } from "../utils/random-number-in-a-interval";
-import { fetchTMDB } from "../utils/tmdb";
+import { TMDB_IMAGE_URL } from "$constants/index";
+import type { Movie, TvShow } from "$types";
+import { randomIntFromInterval } from "$utils/random-number-in-a-interval";
+import { fetchTMDB } from "$utils/tmdb";
 import type { PageServerLoad } from "./$types";
 
 export const load = (async () => {

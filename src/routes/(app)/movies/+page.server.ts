@@ -1,6 +1,6 @@
 import { fetchTMDB } from "$utils/tmdb";
-import { TMDB_IMAGE_URL } from "../../constants";
-import type { Movie } from "../../types";
+import { TMDB_IMAGE_URL } from "$constants/index";
+import type { Movie } from "$types";
 import type { PageServerLoad } from "./$types";
 
 export const load = (async () => {

@@ -90,22 +90,24 @@
             </div>
         {/if}
 
-        <div class="py-6">
-            <h2 class="text-4xl font-semibold">Similar Movies</h2>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 mx-2"> 
-                {#each data.movie.similar as movie}
-                    <MainPoster
-                    title={movie.title}
-                    poster={movie.poster}
-                    id={movie.id}
-                    overview={movie.overview}
-                    vote_average={movie.vote_average}
-                    original_language={movie.original_language}
-                    release_date={movie.release_date}  
-                    type={movie.type}
-                    />
-                {/each}
+        {#if data.movie.similar?.length > 0}
+            <div class="py-6">
+                <h2 class="text-4xl font-semibold">Similar Movies</h2>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 mx-2"> 
+                    {#each data.movie.similar as movie}
+                        <MainPoster
+                        title={movie.title}
+                        poster={movie.poster}
+                        id={movie.id}
+                        overview={movie.overview}
+                        vote_average={movie.vote_average}
+                        original_language={movie.original_language}
+                        release_date={movie.release_date}  
+                        type={movie.type}
+                        />
+                    {/each}
+                </div>
             </div>
-        </div>
+        {/if}
     </div>
 </div>

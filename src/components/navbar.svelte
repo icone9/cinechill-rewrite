@@ -15,11 +15,11 @@ ${y > 100 ? 'bg-[#232426] shadow-md'  : ''} ${open ? 'bg-[#232426]' : ''}
 `}>
   <div class="max-w-7xl mx-auto px-1 md:px-6">
       <div class="relative flex items-center justify-between py-4">
-          <div class="flex items-center sm:hidden">
+          <div class="flex items-center ">
             <!-- @click="navOpen = !navOpen"  -->
               <button
               on:click={handleOpen}
-              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none"
+              class="inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-800 focus:outline-none sm:hidden"
               aria-expanded="false">
                   <span class="sr-only">Open main menu</span>
                   <div class="{open ? 'hidden' : 'inline-block'}">

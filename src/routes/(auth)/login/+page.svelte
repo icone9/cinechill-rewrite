@@ -1,16 +1,10 @@
 <script>
-	import AuthCard from "$components/authCard.svelte";
+	// import AuthCard from "$components/authCard.svelte";
 	import Input from "$components/form/input.svelte";
 	import Label from "$components/form/label.svelte";
+
+  import { enhance } from "$app/forms";
 </script>
-
-<AuthCard>
-  <div slot="logo">
-      <a href="/" class="text-primary text-4xl font-bold">
-          <span class="text-white">Cine</span>Chill
-      </a>
-  </div>
-
   <!-- <x-auth-header/> -->
 
   <!-- Session Status -->
@@ -19,13 +13,13 @@
   <!-- Validation Errors -->
   <!-- <x-auth-validation-errors class="mb-4" :errors="$errors" /> -->
 
-  <form method="POST" >
+  <form method="POST" use:enhance>
 
       <!-- Email Address -->
       <div>
         <Label htmlFor="email" value="Email" />
 
-        <Input id="email" class="block mt-1 w-full" type="email" name="email" value="" required/>
+        <Input id="email" class="block mt-1 w-full" type="email" name="email" required/>
       </div>
 
       <!-- Password -->
@@ -37,7 +31,6 @@
         class="block mt-1 w-full"
         type="password"
         name="password"
-        value=''
         required />
       </div>
 
@@ -59,10 +52,9 @@
             Create a account
           </a>
 
-          <x-button class="ml-3 b-primary">
+          <button type="submit" class="ml-3 bg-primary p-2 rounded-xl font-semibold">
               Log in
-          </x-button>
+          </button>
       </div>
       
   </form>
-</AuthCard>

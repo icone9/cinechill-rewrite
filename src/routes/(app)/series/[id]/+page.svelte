@@ -1,7 +1,7 @@
 <script lang="ts">
 	import MainPoster from '$components/posters/mainPoster.svelte';
 	import MediaPoster from '$components/posters/mediaPoster.svelte';
-	import Spoiler from '../../../components/spoiler.svelte';
+	import Spoiler from '$components/spoiler.svelte';
     import type { PageData } from './$types';
 
     export let data: PageData;
@@ -89,23 +89,25 @@
                 </div>
             </div>
         {/if}
-
-        <div class="pb-6">
-            <h2 class="text-4xl font-semibold">Similar Series</h2>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 mx-2"> 
-                {#each data.serie.similar as serie}
-                    <MainPoster
-                    title={serie.title}
-                    poster={serie.poster}
-                    id={serie.id}
-                    overview={serie.overview}
-                    vote_average={serie.vote_average}
-                    original_language={serie.original_language}
-                    release_date={serie.release_date}  
-                    type={serie.type}
-                    />
-                {/each}
+        
+        {#if data.serie.similar?.length > 0}
+            <div class="pb-6">
+                <h2 class="text-4xl font-semibold">Similar Series</h2>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 mx-2"> 
+                    {#each data.serie.similar as serie}
+                        <MainPoster
+                        title={serie.title}
+                        poster={serie.poster}
+                        id={serie.id}
+                        overview={serie.overview}
+                        vote_average={serie.vote_average}
+                        original_language={serie.original_language}
+                        release_date={serie.release_date}  
+                        type={serie.type}
+                        />
+                    {/each}
+                </div>
             </div>
-        </div>
+        {/if}
     </div>
 </div>

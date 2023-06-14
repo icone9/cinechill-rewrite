@@ -1,5 +1,5 @@
 import { getSerie } from "$lib/server/models/tvShow";
-import { TMDB_IMAGE_URL } from "../../../constants";
+import { TMDB_IMAGE_URL } from "$constants/index";
 import type { PageServerLoad } from "./$types";
 
 export const load = (async ({ params }) => {
