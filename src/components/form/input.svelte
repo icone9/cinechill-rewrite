@@ -10,7 +10,7 @@
 </script>
 
 <input
-class={`rounded-md shadow-sm border-gray-500 focus:border-purple-400 focus:ring focus:ring-purple-300 focus:ring-opacity-50 bg-gray-800 text-white py-2.5 ${className ? className: ''}`}
+class={`rounded-md shadow-sm border-gray-500 focus:border-purple-400 focus:ring focus:ring-purple-300 focus:ring-opacity-50 bg-gray-800 text-white py-2.5 px-2 ${className ? className: ''}`}
 id={id}
 type={type}
 name={name}

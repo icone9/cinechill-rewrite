@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Banner from '../../components/banner.svelte';
-	import MainPoster from '../../components/posters/mainPoster.svelte';
-	import Slider from '../../components/slider.svelte';
-  import type { PageData } from '../$types';
+	import Banner from '$components/banner.svelte';
+	import MainPoster from '$components/posters/mainPoster.svelte';
+	import Slider from '$components/slider.svelte';
+  import type { PageData } from './$types';
 
   export let data: PageData;
 </script>

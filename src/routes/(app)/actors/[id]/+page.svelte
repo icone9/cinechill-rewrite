@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Spoiler from '../../../components/spoiler.svelte';
-	import { TMDB_IMAGE_URL } from '../../../constants';
+	import Spoiler from '$components/spoiler.svelte';
+	import { TMDB_IMAGE_URL } from '$constants/index';
   import type { PageData } from './$types';
 
   export let data: PageData;

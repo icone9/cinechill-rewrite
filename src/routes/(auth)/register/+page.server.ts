@@ -24,18 +24,20 @@ export const actions: Actions = {
 		try {
 			const user = await auth.createUser({
 				primaryKey: {
-					providerId: 'email',
-					providerUserId: email,
+					providerId: 'username',
+					providerUserId: username,
 					password
 				},
 				attributes: {
 					username,
-          email
+          email,
+					avatar: `https://avatars.dicebear.com/api/initials/${username.trim()}.svg`,
 				}
 			});
 			const session = await auth.createSession(user.userId);
 			locals.auth.setSession(session);
-		} catch {
+		} catch(e) {
+			console.log(e, 'err')
 			// username taken
 			return fail(400);
 		}

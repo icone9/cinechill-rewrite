@@ -1,14 +1,16 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-generator client {
-  provider = "prisma-client-js"
+generator kysely {
+  provider = "prisma-kysely"
+  output = "../src/db"
+  fileName = "types.ts"
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
-  directUrl = env("DIRECT_DB_URL")
+  relationMode = "prisma"
 }
 
 model AuthUser {
@@ -17,8 +19,9 @@ model AuthUser {
   auth_key      AuthKey[]
   username      String    @unique
   email         String    @unique
+  avatar        String
 
-  @@map("user")
+  @@map("auth_user")
 }
 
 model AuthSession {

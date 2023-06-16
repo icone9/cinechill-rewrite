@@ -1,6 +1,5 @@
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
-/// <reference types="lucia-auth" />
 declare global {
 	namespace App {
 		// interface Error {}
@@ -15,13 +14,18 @@ declare global {
 				TMDB_ROUTE_URL: string
 			};
 		}
-		namespace Lucia {
-			type Auth = import("$lib/server/lucia").Auth;
-			type UserAttributes = {
-				username: string;
-				email: string;
-			};
-		}
+	}
+}
+
+/// <reference types="lucia-auth" />
+declare global {
+	namespace Lucia {
+		type Auth = import("$lib/server/lucia").Auth;
+		type UserAttributes = {
+			username: string;
+			email: string;
+			avatar: string;
+		};
 	}
 }
 

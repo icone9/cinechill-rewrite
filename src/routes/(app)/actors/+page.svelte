@@ -1,5 +1,5 @@
 <script lang="ts">
-  import ActorCard from '../../components/actors/actorCard.svelte';
+  import ActorCard from '$components/actors/actorCard.svelte';
   import type { PageData } from './$types';
 
   export let data: PageData;
@@ -12,7 +12,7 @@
     {#each data.actors as actor}
       <ActorCard
       id={actor.id}
-      image="{actor.profile_path ? `https://image.tmdb.org/t/p/w235_and_h235_face/${actor.profile_path}`: `https://ui-avatars.com/api/?size=235&name=${actor.name}`}"
+      image={actor.profile_path}
       name={actor.name}
       />
     {/each}

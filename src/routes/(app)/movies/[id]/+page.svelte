@@ -1,7 +1,7 @@
 <script lang="ts">
 	import MainPoster from '$components/posters/mainPoster.svelte';
 	import MediaPoster from '$components/posters/mediaPoster.svelte';
-	import Spoiler from '../../../components/spoiler.svelte';
+	import Spoiler from '$components/spoiler.svelte';
     import type { PageData } from './$types';
 
     export let data: PageData;
