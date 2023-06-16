@@ -16,7 +16,7 @@ const config = {
 			'$components/*': 'src/components/*',
 			'$utils/*': 'src/utils/*',
 			'$constants/*': 'src/constants/*',
-			'$types': 'src/types.ts'
+			$types: 'src/types.ts'
 		}
 	}
 };

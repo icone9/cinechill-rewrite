@@ -1,15 +1,14 @@
 <script lang="ts">
-	import MainPoster from "$components/posters/mainPoster.svelte";
-	import Slider from "$components/slider.svelte";
-	import type { PageData } from "./$types";
+	import MainPoster from '$components/posters/mainPoster.svelte';
+	import Slider from '$components/slider.svelte';
+	import type { PageData } from './$types';
 
-    export let data: PageData;
+	export let data: PageData;
 </script>
 
-
 <div class="mx-auto pt-20 pb-12 px-4">
-  <h2 class="uppercase tracking-wider text-4xl font-semibold">Series</h2>
-      <!-- <div class="mx-auto mt-8 mb-5">
+	<h2 class="uppercase tracking-wider text-4xl font-semibold">Series</h2>
+	<!-- <div class="mx-auto mt-8 mb-5">
           @livewire('search-dropdown')
       </div>
       <h2 class=" tracking-wider text-lg font-semibold">Filter By: </h2>
@@ -47,50 +46,50 @@
               </div>
           </div>
       @endif -->
-      <Slider title="Top Rated Tv Show" path="/serie/top_rated">
-        {#each data.topRatedSeries as serie}
-          <MainPoster
-          title={serie.title}
-          poster={serie.poster}
-          id={serie.id}
-          overview={serie.overview}
-          vote_average={serie.vote_average}
-          original_language={serie.original_language}
-          release_date={serie.release_date}   
-          type={'serie'}
-          />
-        {/each}
-      </Slider>
-  
-      <Slider title="On the Air series" path="/series/on_the_air">
-          {#each data.onTheAirSeries as serie}
-            <MainPoster
-            title={serie.title}
-            poster={serie.poster}
-            id={serie.id}
-            overview={serie.overview}
-            vote_average={serie.vote_average}
-            original_language={serie.original_language}
-            release_date={serie.release_date}   
-            type={'serie'}
-            />
-          {/each}
-      </Slider>
-      <Slider title="Popular series" path="/series/popular">
-          {#each data.popularSeries as serie}
-            <MainPoster
-            title={serie.title}
-            poster={serie.poster}
-            id={serie.id}
-            overview={serie.overview}
-            vote_average={serie.vote_average}
-            original_language={serie.original_language}
-            release_date={serie.release_date}   
-            type={'serie'}
-            />
-          {/each}
-      </Slider>
-      <!-- @if (!empty($topratedtv))
+	<Slider title="Top Rated Tv Show" path="/serie/top_rated">
+		{#each data.topRatedSeries as serie}
+			<MainPoster
+				title={serie.title}
+				poster={serie.poster}
+				id={serie.id}
+				overview={serie.overview}
+				vote_average={serie.vote_average}
+				original_language={serie.original_language}
+				release_date={serie.release_date}
+				type={'serie'}
+			/>
+		{/each}
+	</Slider>
+
+	<Slider title="On the Air series" path="/series/on_the_air">
+		{#each data.onTheAirSeries as serie}
+			<MainPoster
+				title={serie.title}
+				poster={serie.poster}
+				id={serie.id}
+				overview={serie.overview}
+				vote_average={serie.vote_average}
+				original_language={serie.original_language}
+				release_date={serie.release_date}
+				type={'serie'}
+			/>
+		{/each}
+	</Slider>
+	<Slider title="Popular series" path="/series/popular">
+		{#each data.popularSeries as serie}
+			<MainPoster
+				title={serie.title}
+				poster={serie.poster}
+				id={serie.id}
+				overview={serie.overview}
+				vote_average={serie.vote_average}
+				original_language={serie.original_language}
+				release_date={serie.release_date}
+				type={'serie'}
+			/>
+		{/each}
+	</Slider>
+	<!-- @if (!empty($topratedtv))
           <x-slider
           title="Top Rated show"
           class="top_rated-series pt-4"
@@ -113,7 +112,7 @@
           </x-slider>
       @endif -->
 
-      <!-- @if (!empty($populartv))
+	<!-- @if (!empty($populartv))
           <x-slider
           title="Popular series"
           class="popular-series py-16"
@@ -136,7 +135,7 @@
           </x-slider>
       @endif -->
 
-      <!-- @if (!empty($on_the_air))
+	<!-- @if (!empty($on_the_air))
           <x-slider
           title="On The Air Series"
           class="ontheairseries pb-12"
