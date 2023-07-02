@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import { clickOutside } from '$utils/click-outside';
-	import IconMenu from './icons/IconMenu.svelte';
-	import IconSearch from './icons/IconSearch.svelte';
-	import IconX from './icons/IconX.svelte';
+	import IconMenu from '../icons/IconMenu.svelte';
+	import IconSearch from '../icons/IconSearch.svelte';
+	import IconX from '../icons/IconX.svelte';
 	export let user: any | undefined | null;
 
 	let open = false;
