@@ -14,6 +14,7 @@ const config = {
 			'$components/*': 'src/lib/components/*',
 			'$utils/*': 'src/utils/*',
 			'$constants/*': 'src/constants/*',
+			'$stores/*': 'src/stores/*',
 			$types: 'src/types.ts'
 		}
 	},

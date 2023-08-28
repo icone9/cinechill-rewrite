@@ -2,7 +2,7 @@
 	import IconPlay from '$components/icons/IconPlay.svelte';
 	import IconX from '$components/icons/IconX.svelte';
 	import { clickOutside } from '$utils/click-outside';
-	import { modalPosterStore } from '../../stores/global-store';
+	import { modalPosterStore } from '$stores/global-store';
 
 	function closeModal() {
 		modalPosterStore.set({ isModalOpen: false, contentType: null, details: null });

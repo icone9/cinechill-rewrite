@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { modalPosterStore } from '../../stores/global-store';
+	import { modalPosterStore } from '$stores/global-store';
 
 	export let title: string;
 	export let poster: string;

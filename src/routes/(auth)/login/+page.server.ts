@@ -1,10 +1,11 @@
 import { fail, redirect } from '@sveltejs/kit';
 import { auth } from '$lib/server/lucia';
 import type { PageServerLoad, Actions } from './$types';
+import { LuciaError } from 'lucia';
 // import { DATABASE_URL } from '$env/static/private';
 
 export const load: PageServerLoad = async ({ locals }) => {
-	const { session } = await locals.auth.validateUser();
+	const session = await locals.auth.validate();
 	if (session) throw redirect(302, '/');
 	return {};
 };
@@ -16,21 +17,55 @@ export const actions: Actions = {
 		const password = form.get('password');
 		console.log('DbLimte');
 		// check for empty values
-		if (typeof username !== 'string' || typeof password !== 'string') return fail(400);
+		if (
+			typeof username !== "string" ||
+			username.length < 1 ||
+			username.length > 31
+		) {
+			return fail(400, {
+				message: "Invalid username"
+			});
+		}
+		if (
+			typeof password !== "string" ||
+			password.length < 1 ||
+			password.length > 255
+		) {
+			return fail(400, {
+				message: "Invalid password"
+			});
+		}
 		try {
-			const key = await auth.useKey('username', username, password);
-			const session = await auth.createSession(key.userId);
+			const user = await auth.useKey('username', username.toLowerCase(), password);
+			const session = await auth.createSession({
+				userId: user.userId,
+				attributes: {}
+			});
 			locals.auth.setSession(session);
 		} catch (e) {
 			console.log(e, 'err');
-			// invalid username/password
-			return fail(400, { message: 'Invalid username and password' });
+			if (
+				e instanceof LuciaError &&
+				(e.message === "AUTH_INVALID_KEY_ID" ||
+					e.message === "AUTH_INVALID_PASSWORD")
+			) {
+				// user does not exist
+				// or invalid password
+				return fail(400, {
+					message: "Incorrect username of password"
+				});
+			}
+			return fail(500, {
+				message: "An unknown error occurred"
+			});
 		}
+		throw redirect(302, "/");
 	},
 	logout: async ({ locals }) => {
-		const { session } = await locals.auth.validateUser();
+		const { session } = await locals.auth.validate();
 		if (!session) return fail(401);
-		await auth.invalidateSession(session.sessionId); // invalidate session
+		await auth.invalidateSession(session.sessionId)
 		locals.auth.setSession(null); // remove cookie
+		throw redirect(302, "/");
 	}
 };

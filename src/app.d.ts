@@ -1,5 +1,7 @@
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
+
+/// <reference types="lucia" />
 declare global {
 	namespace App {
 		// interface Error {}
@@ -15,17 +17,14 @@ declare global {
 			};
 		}
 	}
-}
-
-/// <reference types="lucia-auth" />
-declare global {
 	namespace Lucia {
 		type Auth = import('$lib/server/lucia').Auth;
-		type UserAttributes = {
+		type DatabaseUserAttributes = {
 			username: string;
 			email: string;
 			avatar: string;
 		};
+		type DatabaseSessionAttributes = {};
 	}
 }
 
