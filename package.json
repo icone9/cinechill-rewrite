@@ -40,6 +40,7 @@
 	"dependencies": {
 		"@lucia-auth/adapter-mysql": "^2.0.0",
 		"@planetscale/database": "^1.10.0",
+		"bits-ui": "^0.5.6",
 		"class-variance-authority": "^0.6.1",
 		"clsx": "^1.2.1",
 		"dotenv": "^16.3.1",
@@ -48,6 +49,7 @@
 		"lucide-svelte": "^0.268.0",
 		"radix-svelte": "^0.9.0",
 		"tailwind-merge": "^1.13.2",
+		"tailwind-variants": "^0.1.14",
 		"tailwindcss-animate": "^1.0.6"
 	}
 }

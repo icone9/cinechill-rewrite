@@ -3,6 +3,7 @@
 	import MediaPoster from '$components/posters/mediaPoster.svelte';
 	import Spoiler from '$components/spoiler.svelte';
 	import type { PageData } from './$types';
+	import * as Tabs from "$lib/components/ui/tabs";
 
 	export let data: PageData;
 </script>
@@ -82,7 +83,17 @@
 				</div>
 			</div>
 		{/if}
-
+		
+		<Tabs.Root value="account">
+			<Tabs.List class="w-full">
+				<Tabs.Trigger class="w-full" value="account">Account</Tabs.Trigger>
+				<Tabs.Trigger class="w-full" value="password">Password</Tabs.Trigger>
+			</Tabs.List>
+			<Tabs.Content value="account">
+				Make changes to your account here.
+			</Tabs.Content>
+			<Tabs.Content value="password">Change your password here.</Tabs.Content>
+		</Tabs.Root>
 		{#if data.movie.similar?.length > 0}
 			<div class="py-6">
 				<h2 class="text-4xl font-semibold">Similar Movies</h2>
