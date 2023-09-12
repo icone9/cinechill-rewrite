@@ -13,11 +13,8 @@
 	const handleUserDropdownOpen = () => (userDropdownOpen = !userDropdownOpen);
 </script>
 
-<nav
-	class={`fixed w-full navigation z-30 ${y > 100 ? 'bg-[#232426] shadow-md' : ''} ${
-		open ? 'bg-[#232426]' : ''
-	}
-`}
+<nav 
+class={`fixed w-full navigation z-30 ${y > 100 ? 'bg-[#232426] shadow-md' : ''} ${open ? 'bg-[#232426]' : ''}`}
 >
 	<div class="max-w-7xl mx-auto px-1 md:px-6">
 		<div class="relative flex items-center justify-between py-4">
@@ -37,7 +34,7 @@
 				</button>
 				<h4 class="font-semibold text-xl text-white ml-2">
 					<a href="/">
-						Cine<span class="text-primary">Chill</span>
+						Cine<span class="text-main">Chill</span>
 					</a>
 				</h4>
 			</div>
@@ -76,7 +73,7 @@
 				{#if !user}
 					<a
 						href="/login"
-						class="bg-primary py-2 px-3 rounded-md text-sm font-medium flex items-center justify-center text-white mr-1 md:mr-2"
+						class="bg-main py-2 px-3 rounded-md text-sm font-medium flex items-center justify-center text-white mr-1 md:mr-2"
 					>
 						Login
 					</a>

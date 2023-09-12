@@ -298,6 +298,7 @@ export type Cast = {
 	vote_count: number;
 	character: string;
 	credit_id: string;
+	name: string;
 	order: number;
 	media_type: string;
 };

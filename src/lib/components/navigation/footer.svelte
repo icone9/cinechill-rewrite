@@ -5,7 +5,7 @@
 <footer class="rounded-2xl shadow py-2 px-4 bg-gray-900 bg-opacity-30 mt-6">
 	<div class="sm:flex sm:items-center sm:justify-between">
 		<a href="/" class="text-2xl font-bold mb-4 sm:mb-0">
-			Cine<span class="text-primary">chill</span>
+			Cine<span class="text-main">chill</span>
 		</a>
 		<ul class="flex flex-wrap items-center mb-4 pt-1.5 text-sm sm:mb-0">
 			<li>
