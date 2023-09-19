@@ -21,10 +21,10 @@ export const session = mysqlTable("user_session", {
 });
 
 export const comments = mysqlTable("comments", {
-	id: int('int').primaryKey().autoincrement(),
+	id: int('id').primaryKey().autoincrement(),
 	body: text("body").notNull(),
 	subject_id: bigint("subject_id", { mode: "number" }).notNull(),
-	subject_type: bigint("subject_type", { mode: "number" }).notNull(),
+	subject_type: varchar("subject_type", { length: 85 }).notNull(),
 	userId: varchar("user_id", { length: 128 }).notNull(),
 	reply: bigint("reply", { mode: 'number' }),
 	createdAt: timestamp('createAt').defaultNow(),
@@ -37,7 +37,7 @@ export const comments = mysqlTable("comments", {
 });
 
 export const favorites = mysqlTable("favorites", {
-	id: int('int').primaryKey().autoincrement(),
+	id: int('id').primaryKey().autoincrement(),
 	subject_id: bigint("subject_id", { mode: "number" }).notNull(),
 	subject_type: varchar("subject_type", { length: 30 }).notNull(),
 	userId: varchar("user_id", { length: 128 }).notNull(),
