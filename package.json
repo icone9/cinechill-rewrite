@@ -15,8 +15,7 @@
 		"db:push": "drizzle-kit push:mysql"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "^2.1.0",
-		"@sveltejs/adapter-cloudflare-workers": "^1.1.4",
+		"@sveltejs/adapter-vercel": "^3.0.3",
 		"@sveltejs/kit": "^1.22.6",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
@@ -47,6 +46,7 @@
 		"drizzle-orm": "^0.28.2",
 		"lucia": "^2.4.0",
 		"lucide-svelte": "^0.268.0",
+		"mysql2": "^3.6.1",
 		"radix-svelte": "^0.9.0",
 		"tailwind-merge": "^1.13.2",
 		"tailwind-variants": "^0.1.14",
